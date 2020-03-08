@@ -1,18 +1,18 @@
 const express = require("express");
 const connectDB = require("./config/db");
-const bp = require('body-parser');
 const app = express();
+// const bp = require('body-parser');
 
 // Connect DataBase
 connectDB();
 
 // Init Middleware
-app.use(bp.json({ extended: false }));
+app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => res.send("API Running"));
+app.get("/", (req, res) => res.send("API's running nicely boss"));
 
 // Define Routes
-app.use("/api/users", require("./routes/api/users"));
+app.use("/api/user", require("./routes/api/users"));
 app.use("/api/profile", require("./routes/api/profile"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/posts", require("./routes/api/posts"));
